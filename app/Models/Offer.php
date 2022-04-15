@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Offer extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        // Foreign keys
+        'company_id',
         // Data
-        'first_name',
-        'last_name',
-        'email',
-        'password',
+        'title',
+        'description',
+        // Links
+        'application_link',
+        // Tags
+        'requirements'
     ];
 }
