@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\{Offer, Project, User, Company};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Projects routes
+Route::get('/projects', function () {
+    return Project::with('user')->get();
+});
+
+// User Projects
+Route::get('/user/{user}/projects', function (User $user) {
+    return $user->projects;
+});
+
+// Offers routes
+Route::get('/offers', function () {
+    cache()->get('offers') ?? cache()->remember('offers', 60, function () {
+        return Offer::orderBy('id', 'desc')->get();
+    });
+
+    return cache()->get('offers') ?? Offer::orderBy('id', 'desc')->get();
+});
+
+// Company Offers
+Route::get('/company/{company}/offers', function (Company $company) {
+    return $company->offers;
 });
