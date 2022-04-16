@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             // ID
             $table->id();
-            
+
             // foreign key
-            $table->bigInteger('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies');
-            
+            $table->foreignId('company_id')
+                ->constrained('companies')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             // Data
             $table->string('title');
             $table->text('description');
@@ -29,7 +31,7 @@ return new class extends Migration
             $table->string('application_link')->nullable();
 
             // Tags
-            $table->string('requirements')->nullable();
+            $table->string('tags')->nullable();
 
             // Timestamps
             $table->timestamp('created_at')->useCurrent();

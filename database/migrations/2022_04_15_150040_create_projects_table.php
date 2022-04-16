@@ -18,8 +18,10 @@ return new class extends Migration
             $table->id();
 
             // foreign key
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             // Data
             $table->string('title');
@@ -29,10 +31,10 @@ return new class extends Migration
             $table->string('image_link')->nullable();
             $table->string('github_link')->nullable();
             $table->string('design_link')->nullable();
-            
+
             // Tags
             $table->string('tags')->nullable();
-            
+
             // Timestamps
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
