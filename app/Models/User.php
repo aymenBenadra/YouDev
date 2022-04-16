@@ -9,6 +9,8 @@ class User extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         // Data
         'first_name',
@@ -16,4 +18,9 @@ class User extends Model
         'email',
         'password',
     ];
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

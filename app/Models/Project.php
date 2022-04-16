@@ -9,6 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     protected $fillable = [
         // Foreign keys
         'user_id',
@@ -22,4 +24,9 @@ class Project extends Model
         // Tags
         'tags'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

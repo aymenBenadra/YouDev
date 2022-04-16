@@ -9,6 +9,8 @@ class Company extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         // Data
         'name',
@@ -17,4 +19,9 @@ class Company extends Model
         'website_link',
         'logo_link',
     ];
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
 }

@@ -9,6 +9,8 @@ class Offer extends Model
 {
     use HasFactory;
 
+    protected $with = ['company'];
+
     protected $fillable = [
         // Foreign keys
         'company_id',
@@ -18,6 +20,11 @@ class Offer extends Model
         // Links
         'application_link',
         // Tags
-        'requirements'
+        'tags'
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
