@@ -114,7 +114,7 @@ Original Enterprise Architect project model: [YouDev.eapx](modelization/YouDev.e
             `company_id` int(11) NOT NULL,
             `title` varchar(255) NOT NULL,
             `description` text NOT NULL,
-            `requirements` varchar(255) NOT NULL,
+            `tags` varchar(255) NOT NULL,
             `application_link` varchar(255) NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`),
@@ -152,7 +152,7 @@ Original Enterprise Architect project model: [YouDev.eapx](modelization/YouDev.e
     4. Offers:
 
         ```sql
-        INSERT INTO `offers` (`company_id`, `title`, `description`, `requirements`, `application_link`) VALUES
+        INSERT INTO `offers` (`company_id`, `title`, `description`, `tags`, `application_link`) VALUES
         (1, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs'),
         (2, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs');
         ```
