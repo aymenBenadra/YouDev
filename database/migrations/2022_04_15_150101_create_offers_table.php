@@ -30,9 +30,6 @@ return new class extends Migration
             // Links
             $table->string('application_link')->nullable();
 
-            // Tags
-            $table->string('tags')->nullable();
-
             // Timestamps
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

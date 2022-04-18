@@ -19,8 +19,6 @@ class Offer extends Model
         'description',
         // Links
         'application_link',
-        // Tags
-        'tags'
     ];
 
     public function company()

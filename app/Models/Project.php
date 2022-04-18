@@ -21,8 +21,6 @@ class Project extends Model
         'image_link',
         'github_link',
         'design_link',
-        // Tags
-        'tags'
     ];
 
     public function user()

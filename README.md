@@ -85,7 +85,6 @@ Original Enterprise Architect project model: [YouDev.eapx](modelization/YouDev.e
             `github_link` varchar(255) NOT NULL,
             `design_link` varchar(255) NOT NULL,
             `image_link` varchar(255) NOT NULL,
-            `tags` varchar(255) NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`),
@@ -114,7 +113,6 @@ Original Enterprise Architect project model: [YouDev.eapx](modelization/YouDev.e
             `company_id` int(11) NOT NULL,
             `title` varchar(255) NOT NULL,
             `description` text NOT NULL,
-            `tags` varchar(255) NOT NULL,
             `application_link` varchar(255) NOT NULL,
             `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`),
@@ -144,15 +142,15 @@ Original Enterprise Architect project model: [YouDev.eapx](modelization/YouDev.e
     3. Projects:
 
         ```sql
-        INSERT INTO `projects` (`user_id`, `title`, `description`, `github_link`, `design_link`, `image_link`, `tags`) VALUES
-        (1, 'YouDev', 'A web application for developers', 'github.com/youdev', 'https://youdev.com', 'https://youdev.com/images/youdev.png', 'javascript, html, css, php, mysql, laravel, blade, bem'),
-        (2, 'Todo list', 'A todo list web application', 'github.com/todolist', 'https://todolist.com', 'https://youdev.com/images/todolist.png', 'javascript, html, css, php, mysql, laravel, blade, bem');
+        INSERT INTO `projects` (`user_id`, `title`, `description`, `github_link`, `design_link`, `image_link`) VALUES
+        (1, 'YouDev', 'A web application for developers', 'github.com/youdev', 'https://youdev.com', 'https://youdev.com/images/youdev.png'),
+        (2, 'Todo list', 'A todo list web application', 'github.com/todolist', 'https://todolist.com', 'https://youdev.com/images/todolist.png');
         ```
 
     4. Offers:
 
         ```sql
-        INSERT INTO `offers` (`company_id`, `title`, `description`, `tags`, `application_link`) VALUES
-        (1, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs'),
-        (2, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs');
+        INSERT INTO `offers` (`company_id`, `title`, `description`, `application_link`) VALUES
+        (1, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs'),
+        (2, 'Full-stack developer', 'We are looking for a full-stack developer to join our team', 'https://youdev.com/jobs');
         ```

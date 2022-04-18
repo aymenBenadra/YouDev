@@ -26,8 +26,6 @@ class ProjectFactory extends Factory
             'image_link' => $this->faker->imageUrl,
             'github_link' => $this->faker->url,
             'design_link' => $this->faker->url,
-            // Tags
-            'tags' => implode('|' ,$this->faker->words(3))
         ];
     }
 }

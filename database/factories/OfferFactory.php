@@ -24,8 +24,6 @@ class OfferFactory extends Factory
             'description' => $this->faker->paragraph,
             // Links
             'application_link' => $this->faker->url,
-            // Tags
-            'tags' => implode('|' ,$this->faker->words(3)),
         ];
     }
 }
