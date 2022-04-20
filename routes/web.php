@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\OffersController;
-use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\{CompaniesController, UsersController, OffersController, ProjectsController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,32 +18,26 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-//? Login Routes
-Route::get('login/company', function () {
-    return view('company.login-company');
-})->name('login.company');
+//? Companies Routes
+Route::get('register/company', [CompaniesController::class, 'register'])->name('companies.register');
+Route::post('register/company', [CompaniesController::class, 'store'])->name('companies.store');
+Route::get('login/company', [CompaniesController::class, 'login'])->name('companies.login');
+Route::post('login/company', [CompaniesController::class, 'login'])->name('companies.login');
 
-Route::get('login', function () {
-    return view('user.login-user');
-})->name('login.user');
-
-//? Register Routes
-Route::get('register/company', function () {
-    return view('company.register-company');
-})->name('register.company');
-
-Route::get('register', function () {
-    return view('user.register-user');
-})->name('register.user');
+//? Users Routes
+Route::get('register', [UsersController::class, 'register'])->name('users.register');
+Route::post('register', [UsersController::class, 'store'])->name('users.store');
+Route::get('login', [UsersController::class, 'login'])->name('users.login');
+Route::post('login', [UsersController::class, 'signin'])->name('users.signin');
 
 //? Projects routes
 Route::get('projects', [ProjectsController::class, 'index'])->name('projects');
 Route::get('projects/{project}', [ProjectsController::class, 'show'])->name('projects.show');
-Route::get('projects/create', [ProjectsController::class, 'create'])->name('projects.create');
-Route::get('projects/update/{project}', [ProjectsController::class, 'update'])->name('projects.update');
+Route::get('project/create', [ProjectsController::class, 'create'])->name('project.create');
+Route::get('project/update/{project}', [ProjectsController::class, 'update'])->name('project.update');
 
 //? Offers routes
 Route::get('offers', [OffersController::class, 'index'])->name('offers');
 Route::get('offers/{offer}', [OffersController::class, 'show'])->name('offers.show');
-Route::get('offers/create', [OffersController::class, 'create'])->name('offers.create');
-Route::get('offers/update/{offer}', [OffersController::class, 'update'])->name('offers.update');
+Route::get('offer/create', [OffersController::class, 'create'])->name('offer.create');
+Route::get('offer/update/{offer}', [OffersController::class, 'update'])->name('offer.update');
