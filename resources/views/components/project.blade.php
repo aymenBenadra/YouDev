@@ -5,7 +5,7 @@
     <figure><img src="{{ $project->image_link }}" alt="Shoes" class="object-cover h-36 w-full" /></figure>
     <div class="card-body">
         <div class="card-actions justify-end">
-            <div class="badge badge-info badge-outline"><a href="/projects/update/{{ $project->id }}">Update</a></div>
+            <div class="badge badge-info badge-outline"><a href="/project/update/{{ $project->id }}">Update</a></div>
             <div class="badge badge-error badge-outline"><a href="/delete/project/{{ $project->id }}">Delete</a></div>
         </div>
         <h2 class="card-title">

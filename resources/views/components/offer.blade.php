@@ -3,7 +3,7 @@
 <div class="card w-2/5 max-w-xs min-w-min bg-base-100 shadow-xl mx-1 my-3 border-2 border-blue-600">
     <div class="card-body">
         <div class="card-actions justify-end">
-            <div class="badge badge-info badge-outline"><a href="/offers/update/{{ $offer->id }}">Update</a></div>
+            <div class="badge badge-info badge-outline"><a href="/offer/update/{{ $offer->id }}">Update</a></div>
             <div class="badge badge-error badge-outline"><a href="/delete/offer/{{ $offer->id }}">Delete</a></div>
         </div>
         <h2 class="card-title">
