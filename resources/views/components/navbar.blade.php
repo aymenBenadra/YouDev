@@ -4,7 +4,7 @@
     </a>
     @if (Str::contains(Route::current()->getName(), 'offer') || Str::contains(Route::current()->getName(), 'project'))
         <div class="space-x-3">
-            <a href="{{ Route::current()->getName() == 'offers' ? '/offers/create' : '/projects/create' }}">
+            <a href="{{ Str::contains(Route::current()->getName(), 'offer') ? '/offer/create' : '/project/create' }}">
                 <button class="btn p-2 px-2.5 min-h-fit h-fit border-0 bg-blue-600 rounded-full">+</button>
             </a>
             <a href="/logout">
