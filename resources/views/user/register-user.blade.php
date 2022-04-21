@@ -25,7 +25,7 @@
                 @error('password')
                     <p class="text-red-600 text-xs">{{ $message }}</p>
                 @enderror
-                <div class="card-actions">
+                <div class=card-actions justify-center>
                     <a href="/register">
                         <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Sign up</button>
                     </a>

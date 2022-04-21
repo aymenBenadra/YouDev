@@ -9,7 +9,7 @@
                 <input type="email" name="email" placeholder="Email..." class="input w-full max-w-xs">
                 <input type="password" name="password" placeholder="Password..." class="input w-full max-w-xs">
 
-                <div class="card-actions">
+                <div class=card-actions justify-center>
                     <a href="/login">
                         <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Login</button>
                     </a>

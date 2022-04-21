@@ -17,7 +17,7 @@
                 <input type="url" placeholder="Design link..." name="design_link" value="{{ $project->design_link }}"
                     class="input w-full max-w-xs">
 
-                <div class="card-actions">
+                <div class=card-actions justify-center>
                     <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Submit</button>
                 </div>
             </form>

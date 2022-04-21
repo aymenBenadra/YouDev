@@ -10,7 +10,7 @@
                 <textarea class="textarea input w-full max-w-xs" name="description" placeholder="Description..." required></textarea>
                 <input type="url" placeholder="Application link..." name="application_link" class="input w-full max-w-xs"
                     required>
-                <div class="card-actions">
+                <div class=card-actions justify-center>
                     <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Submit</button>
                 </div>
             </form>
