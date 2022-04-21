@@ -11,7 +11,7 @@ class OffersController extends Controller
     public function index()
     {
         return view('company.offers', [
-            'offers' => Offer::all()
+            'offers' => Offer::latest()->paginate(6)
         ]);
     }
 
@@ -52,13 +52,16 @@ class OffersController extends Controller
 
     public function edit(Request $request, Offer $offer)
     {
-        ddd($request, $offer);
-        $offer->update($request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
-            'salary' => 'required|max:255',
-            'company_id' => 'required|max:255',
-        ]));
+        $offer->update(array_merge(
+            $request->validate([
+                'title' => 'required|max:255',
+                'description' => 'required|max:255',
+                'application_link' => 'required|max:255',
+            ]),
+            [
+                'company_id' => Auth::guard('company')->user()->id
+            ]
+        ));
 
         return redirect()->route('offers')->with('message', 'Offer updated successfully!');
     }

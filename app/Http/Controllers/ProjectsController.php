@@ -10,7 +10,7 @@ class ProjectsController extends Controller
     public function index()
     {
         return view('user.projects', [
-            'projects' => Project::all()
+            'projects' => Project::latest()->paginate(6)
         ]);
     }
 
@@ -53,13 +53,18 @@ class ProjectsController extends Controller
 
     public function edit(Request $request, Project $project)
     {
-        $project->update($request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
-            'image_link' => 'required|max:255',
-            'github_link' => 'required|max:255',
-            'design_link' => 'required|max:255',
-        ]));
+        $project->update(array_merge(
+            $request->validate([
+                'title' => 'required|max:255',
+                'description' => 'required|max:255',
+                'image_link' => 'required|max:255',
+                'github_link' => 'required|max:255',
+                'design_link' => 'required|max:255',
+            ]),
+            [
+                'user_id' => auth()->user()->id
+            ]
+        ));
 
         return redirect()->route('projects')->with('message', 'Project updated successfully!');
     }
