@@ -50,11 +50,4 @@ class UsersController extends Controller
 
         return redirect()->route('projects')->with('message', 'You are logged in!');
     }
-
-    public function logout()
-    {
-        auth()->logout();
-
-        return redirect()->route('home')->with('message', 'You are logged out!');
-    }
 }
