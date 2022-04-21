@@ -18,7 +18,8 @@ $class = $base . (!$full ? 'w-2/5 max-w-xs min-w-min' : 'w-2/3 min-w-min');
                     <div class="badge badge-info badge-outline"><a
                             href="{{ route('offer.update', $offer->id) }}">Update</a></div>
                     <div class="badge badge-error badge-outline">
-                        <form action="{{ route('offer.delete', $offer->id) }}" method="POST">
+                        <form action="{{ route('offer.delete', $offer->id) }}" method="POST"
+                            onsubmit="confirm('Are you sure?')">
                             @csrf
                             <button type="submit">Delete</button>
                         </form>
