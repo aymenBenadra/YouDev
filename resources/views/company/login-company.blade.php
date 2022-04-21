@@ -9,7 +9,7 @@
                 <input type="text" placeholder="Name..." name="name" class="input w-full max-w-xs">
                 <input type="password" placeholder="Password..." name="password" class="input w-full max-w-xs">
 
-                <div class=card-actions justify-center>
+                <div class="card-actions justify-center">
                     <a href="/login/company">
                         <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Login</button>
                     </a>

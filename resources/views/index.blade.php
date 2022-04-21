@@ -9,7 +9,7 @@
                     <h2 class="card-title text-blue-600">For Companies</h2>
                     <p>Scout talents today and find your next dev and design star team! Send your offers and wait for
                         talents to come.</p>
-                    <div class=card-actions justify-center>
+                    <div class="card-actions justify-center">
                         <a href="/login/company">
                             <button class="btn bg-blue-500 rounded-full border-0 btn-wide">Recruit Now!</button>
                         </a>
@@ -21,7 +21,7 @@
                     <h2 class="card-title text-blue-600">For Job Seekers</h2>
                     <p>Connect today with a growing network of like minded individuals and create tomorrows future
                         Today!</p>
-                    <div class="card-actions justify-center">
+                    <div class="" card-actions justify-center"">
                         <a href="/login">
                             <button class="btn bg-blue-500 rounded-full border-0 btn-wide">Share Now!</button>
                         </a>

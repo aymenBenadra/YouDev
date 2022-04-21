@@ -24,7 +24,7 @@
         <x-footer />
     </footer>
     @if (session()->has('message'))
-        <div class="alert alert-success shadow-lg fixed w-2/4 bottom-3 right-1/2 translate-x-1/2">
+        <div class="alert text-white bg-blue-600 shadow-lg fixed w-2/4 bottom-3 right-1/2 translate-x-1/2">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
                     viewBox="0 0 24 24">

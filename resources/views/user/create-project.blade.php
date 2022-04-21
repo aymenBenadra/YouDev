@@ -12,7 +12,7 @@
                 <input type="url" placeholder="Github link..." name="github_link" class="input w-full max-w-xs">
                 <input type="url" placeholder="Design link..." name="design_link" class="input w-full max-w-xs">
 
-                <div class="card-actions justify-center">
+                <div class="" card-actions justify-center"">
                     <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Submit</button>
                 </div>
             </form>
