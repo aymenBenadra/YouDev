@@ -20,32 +20,27 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        return $request->all();
-        $request->validate([
-            'first_name' => 'required:max:255',
+        $user = User::create($request->validate([
+            'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|max:255',
-        ]);
+        ]));
 
-        $user = new User;
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        auth()->login($user);
 
-        return redirect()->route('login')->with('message', 'User created successfully!');
+        return redirect()->route('projects')->with('message', 'User created successfully!');
     }
 
     public function signin(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|max:255',
         ]);
 
         $user = User::where('email', $request->email)->first();
+
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return redirect()->back()->with('error', 'Invalid credentials!');
@@ -53,6 +48,13 @@ class UsersController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('home')->with('message', 'You are logged in!');
+        return redirect()->route('projects')->with('message', 'You are logged in!');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->route('home')->with('message', 'You are logged out!');
     }
 }

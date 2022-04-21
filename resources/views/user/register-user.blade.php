@@ -6,11 +6,25 @@
             <h2 class="card-title text-blue-600">For Job Seekers</h2>
             <form action="/register" method="POST">
                 @csrf
-                <input type="text" placeholder="First Name..." name="first_name" class="input w-full max-w-xs">
-                <input type="text" placeholder="Last Name..." name="last_name" class="input w-full max-w-xs">
-                <input type="email" placeholder="Email..." name="email" class="input w-full max-w-xs">
+                <input type="text" placeholder="First Name..." name="first_name" value="{{ old('name') }}"
+                    class="input w-full max-w-xs">
+                @error('first_name')
+                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                @enderror
+                <input type="text" placeholder="Last Name..." name="last_name" value="{{ old('last_name') }}"
+                    class="input w-full max-w-xs">
+                @error('last_name')
+                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                @enderror
+                <input type="email" value="{{ old('email') }}" placeholder="Email..." name="email"
+                    class="input w-full max-w-xs">
+                @error('email')
+                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                @enderror
                 <input type="password" placeholder="Password..." name="password" class="input w-full max-w-xs">
-
+                @error('password')
+                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                @enderror
                 <div class="card-actions">
                     <a href="/register">
                         <button type="submit" class="btn bg-blue-500 rounded-full border-0 btn-wide">Sign up</button>

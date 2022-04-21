@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $table = 'users';
 
     protected $fillable = [
         // Data
@@ -18,6 +20,11 @@ class User extends Model
         'email',
         'password',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 
     public function projects()
     {

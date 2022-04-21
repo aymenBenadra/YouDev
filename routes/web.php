@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if (auth()->check())
+        return redirect()->route('projects')->with('message', 'You are already logged in!');
+
     return view('index');
 })->name('home');
 
@@ -22,13 +25,14 @@ Route::get('/', function () {
 Route::get('register/company', [CompaniesController::class, 'register'])->name('companies.register');
 Route::post('register/company', [CompaniesController::class, 'store'])->name('companies.store');
 Route::get('login/company', [CompaniesController::class, 'login'])->name('companies.login');
-Route::post('login/company', [CompaniesController::class, 'login'])->name('companies.login');
+Route::post('login/company', [CompaniesController::class, 'signin'])->name('companies.login');
 
 //? Users Routes
 Route::get('register', [UsersController::class, 'register'])->name('users.register');
 Route::post('register', [UsersController::class, 'store'])->name('users.store');
 Route::get('login', [UsersController::class, 'login'])->name('users.login');
 Route::post('login', [UsersController::class, 'signin'])->name('users.signin');
+Route::post('logout', [UsersController::class, 'logout'])->name('users.logout');
 
 //? Projects routes
 Route::get('projects', [ProjectsController::class, 'index'])->name('projects');

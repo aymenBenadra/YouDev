@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Company extends Authenticatable
 {
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $table = 'companies';
 
     protected $fillable = [
         // Data
@@ -19,6 +21,11 @@ class Company extends Model
         'website_link',
         'logo_link',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 
     public function offers()
     {

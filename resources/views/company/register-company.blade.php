@@ -8,7 +8,6 @@
                 @csrf
                 <input type="text" placeholder="Name..." name="name" class="input w-full max-w-xs">
                 <input type="url" placeholder="Logo link..." name="logo_link" class="input w-full max-w-xs">
-                <input type="email" placeholder="Email..." name="email" class="input w-full max-w-xs">
                 <input type="url" placeholder="Website link..." name="website_link" class="input w-full max-w-xs">
                 <input type="password" placeholder="Password..." name="password" class="input w-full max-w-xs">
 
