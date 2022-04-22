@@ -16,7 +16,7 @@ $class = $base . (!$full ? 'w-2/5 max-w-xs min-w-min' : 'w-2/3 min-w-min');
                 </div>
                 <div class="badge badge-error badge-outline">
                     <form action="{{ route('project.delete', $project->id) }}" method="POST"
-                        onsubmit="confirm('Are you sure?')">
+                        onsubmit="return confirm('Are you sure?')">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>
