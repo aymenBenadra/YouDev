@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
             return redirect()->route('offers')->with('message', 'You are already logged in!');
         }
 
-        if (Auth::guard('user')->check()) {
+        if (Auth::check()) {
             return redirect()->route('projects')->with('message', 'You are already logged in!');
         }
 

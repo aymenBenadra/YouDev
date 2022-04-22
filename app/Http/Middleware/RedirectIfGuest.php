@@ -17,8 +17,8 @@ class RedirectIfGuest
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() || !Auth::guard('company')->check()) {
-            return redirect()->route('home')->with('error', 'You must be logged in to access this page.');
+        if (!auth()->check() && !Auth::guard('company')->check()) {
+            return redirect()->route('home')->with('message', 'You must be logged in to access this page.');
         }
 
         return $next($request);

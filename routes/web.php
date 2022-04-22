@@ -16,14 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if (auth()->check())
-        return redirect()->route('projects')->with('message', 'You are already logged in!');
-
     return view('index');
-})->middleware('auth')->name('home');
+})->name('home');
 
 //? Companies Routes
-Route::controller(CompaniesController::class)->middleware('auth')->group(function () {
+Route::controller(CompaniesController::class)->middleware('guest')->group(function () {
     Route::get('register/company', 'register')->name('companies.register');
     Route::post('register/company', 'store')->name('companies.store');
 
@@ -32,7 +29,7 @@ Route::controller(CompaniesController::class)->middleware('auth')->group(functio
 });
 
 //? Users Routes
-Route::controller(UsersController::class)->middleware('auth')->group(function () {
+Route::controller(UsersController::class)->middleware('guest')->group(function () {
     Route::get('register', 'register')->name('users.register');
     Route::post('register', 'store')->name('users.store');
 
@@ -44,10 +41,10 @@ Route::post('logout', function () {
     auth()->logout();
     Auth::guard('company')->logout();
     return redirect()->route('home')->with('message', 'You are logged out!');
-})->middleware('guest')->name('users.logout');
+})->middleware('auth')->name('users.logout');
 
 //? Projects routes
-Route::controller(ProjectsController::class)->middleware('guest')->group(function () {
+Route::controller(ProjectsController::class)->middleware('auth')->group(function () {
     Route::get('projects', 'index')->name('projects');
     Route::get('projects/{project}', 'show')->name('projects.show');
 
@@ -61,7 +58,7 @@ Route::controller(ProjectsController::class)->middleware('guest')->group(functio
 });
 
 //? Offers routes
-Route::controller(OffersController::class)->middleware('guest')->group(function () {
+Route::controller(OffersController::class)->middleware('auth')->group(function () {
     Route::get('offers', 'index')->name('offers');
     Route::get('offers/{offer}', 'show')->name('offers.show');
 
