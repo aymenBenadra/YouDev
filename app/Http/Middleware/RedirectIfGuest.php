@@ -2,29 +2,23 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class RedirectIfGuest
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('company')->check()) {
-            return redirect()->route('offers')->with('message', 'You are already logged in!');
-        }
-
-        if (Auth::guard('user')->check()) {
-            return redirect()->route('projects')->with('message', 'You are already logged in!');
+        if (!auth()->check() || !Auth::guard('company')->check()) {
+            return redirect()->route('home')->with('error', 'You must be logged in to access this page.');
         }
 
         return $next($request);

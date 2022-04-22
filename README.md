@@ -15,11 +15,19 @@ YouDev is a platform that allows you to share your completed projects with other
 
 ## Pages
 
-- [ ] Authentication page
-  - [ ] Users Auth
-  - [ ] Companies Auth
+- [ ] Home Page
+  - [ ] Users Auth Page
+  - [ ] Companies Auth Page
 - [ ] Projects page
-- [ ] Jobs page
+  - [ ] Show Project Page
+  - [ ] Create Project Page
+  - [ ] Update Project Page
+  - [ ] Delete Project
+- [ ] Offers page
+  - [ ] Show Offer Page
+  - [ ] Create Offer Page
+  - [ ] Update Offer Page
+  - [ ] Delete Offer
 
 ## Definitions
 
